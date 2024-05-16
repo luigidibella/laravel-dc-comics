@@ -1,5 +1,5 @@
 <header>
-    <ul class="nav bg-black text-warning fixed-top">
+    <ul class="nav bg-black fixed-top">
         <li class="nav-item">
           <a class="nav-link active text-warning" aria-current="page" href="{{route('home')}}"><strong>Home</strong></a>
         </li>
