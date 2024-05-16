@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-5">
     <h1>Elenco dei fumetti</h1>
 
     <table class="table">

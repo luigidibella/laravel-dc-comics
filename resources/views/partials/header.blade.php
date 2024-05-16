@@ -1,13 +1,13 @@
 <header>
-    <ul class="nav">
+    <ul class="nav bg-black text-warning fixed-top">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+          <a class="nav-link active text-warning" aria-current="page" href="{{route('home')}}"><strong>Home</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('comics.index')}}">I miei fumetti</a>
+          <a class="nav-link text-warning" href="{{route('comics.index')}}">I miei fumetti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link text-danger disabled" aria-disabled="true">Disabled</a>
         </li>
     </ul>
 </header>
