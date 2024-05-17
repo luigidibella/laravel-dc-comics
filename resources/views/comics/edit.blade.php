@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container py-5">
-    <h1>Nuovo fumetto</h1>
+    <h1>Modifica fumetto</h1>
     <div class="row">
         <div class="col-6">
             <form action="{{ route('comics.update', $comic)}}" method="POST">
@@ -16,7 +16,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Descrizione</label>
-                    <textarea name="description" class="form-control" id="description" value="{{ $comic->description }}"></textarea>
+                    <textarea name="description" class="form-control" id="description">{{ $comic->description }}</textarea>
                 </div>
 
                 <div class="mb-3">

@@ -34,7 +34,8 @@ class ComicsController extends Controller
         $form_data = $request->all();
 
         $new_comic = new Comic();
-        $new_comic->title = $form_data['title'];
+
+        /* $new_comic->title = $form_data['title'];
         $new_comic->slug = Helper::generateSlug($new_comic->title,new Comic());
         $new_comic->description = $form_data['description'];
         $new_comic->thumb = $form_data['thumb'];
@@ -43,7 +44,10 @@ class ComicsController extends Controller
         $new_comic->sale_date = $form_data['sale_date'];
         $new_comic->type = $form_data['type'];
         $new_comic->artists = $form_data['artists'];
-        $new_comic->writers = $form_data['writers'];
+        $new_comic->writers = $form_data['writers']; */
+
+        $form_data['slug'] = Helper::generateSlug($form_data['title'], new Comic());
+        $new_comic->fill($form_data);
         $new_comic->save();
 
         /* dd($new_comic); */

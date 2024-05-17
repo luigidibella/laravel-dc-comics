@@ -8,7 +8,7 @@
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="max-width: 400px;">
         </div>
         <div class="col d-flex flex-column justify-content-center">
-            <h1>{{ $comic->title }}</h1>
+            <h1>{{ $comic->title }} <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a></h1>
             <p>{{ $comic->description }}</p>
             <div class="d-flex">
                 <p>{{ $comic->price }}/</p>
