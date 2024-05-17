@@ -3,7 +3,19 @@
 @section('content')
 
 <div class="container py-5">
-    <h1>Modifica fumetto</h1>
+    <h1>
+        Modifica fumetto
+        <form
+            class="d-inline"
+            action="{{ route('comics.destroy', $comic->id) }}"
+            method="POST"
+            onsubmit="return confirm('Sei sicuro di vole eliminare {{ $comic->title }}?')"
+        >
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </form>
+    </h1>
     <div class="row">
         <div class="col-6">
             <form action="{{ route('comics.update', $comic)}}" method="POST">

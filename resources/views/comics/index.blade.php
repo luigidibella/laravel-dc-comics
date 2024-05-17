@@ -7,8 +7,8 @@
 
     @if (session('deleted'))
 
-    <div class="alert alert-success ">
-
+    <div class="alert alert-success" role="alert">
+        {{ session('deleted')}}
     </div>
 
     @endif
@@ -31,7 +31,12 @@
                 <td>
                     <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success"><i class="fa-regular fa-eye"></i></a>
                     <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a>
-                    <form class="d-inline" action="{{ route('comics.destroy', $comic->id) }}" method="POST" onsubmit="return confirm(Sei sicuro di vole eliminare {{ $comic->title }}?)">
+                    <form
+                        class="d-inline"
+                        action="{{ route('comics.destroy', $comic->id) }}"
+                        method="POST"
+                        onsubmit="return confirm('Sei sicuro di vole eliminare {{ $comic->title }}?')"
+                    >
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>

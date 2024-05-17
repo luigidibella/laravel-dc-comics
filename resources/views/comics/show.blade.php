@@ -8,7 +8,20 @@
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="max-width: 400px;">
         </div>
         <div class="col d-flex flex-column justify-content-center">
-            <h1>{{ $comic->title }} <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a></h1>
+            <h1>
+                {{ $comic->title }}
+                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                <form
+                    class="d-inline"
+                    action="{{ route('comics.destroy', $comic->id) }}"
+                    method="POST"
+                    onsubmit="return confirm('Sei sicuro di vole eliminare {{ $comic->title }}?')"
+                >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                </form>
+            </h1>
             <p>{{ $comic->description }}</p>
             <div class="d-flex">
                 <p>{{ $comic->price }}/</p>
