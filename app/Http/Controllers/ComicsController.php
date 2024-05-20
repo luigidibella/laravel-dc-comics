@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comic;
 use App\Functions\Helper;
+use App\Http\Requests\ComicRequest;
 
 class ComicsController extends Controller
 {
@@ -29,9 +30,9 @@ class ComicsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
-        $request->validate([
+        /* $request->validate([
             'title' => 'required|min:3|max:50',
             'thumb' => 'required|min:3|max:50',
             'price' => 'required|min:3|max:50',
@@ -67,7 +68,7 @@ class ComicsController extends Controller
             'type.max' => 'Il tipo deve contenere non piu di :max caratteri',
             'artists.max' => 'Gli artisti deve contenere non piu di :max caratteri',
             'writers.max' => 'Gli scrittori deve contenere non piu di :max caratteri',
-        ]);
+        ]); */
 
         $form_data = $request->all();
 
@@ -114,7 +115,7 @@ class ComicsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(ComicRequest $request, Comic $comic)
     {
         $form_data = $request->all();
 
