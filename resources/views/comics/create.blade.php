@@ -4,11 +4,22 @@
 
 <div class="container py-5">
     <h1>Nuovo fumetto</h1>
+
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-6">
 
             @php
-                $status = 'test';
+                $status = 'prod';
                 $title = '';
                 $description = '';
                 $thumb = '';
@@ -34,7 +45,7 @@
             <form action="{{ route('comics.store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titolo</label>
+                    <label for="title" class="form-label">Titolo (*)</label>
                     <input name="title" type="text" class="form-control" id="title" value="{{ $title }}">
                 </div>
 
@@ -44,37 +55,37 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="thumb" class="form-label">Copertina</label>
+                    <label for="thumb" class="form-label">Copertina (*)</label>
                     <input name="thumb" type="text" class="form-control" id="thumb" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Prezzo</label>
+                    <label for="price" class="form-label">Prezzo (*)</label>
                     <input name="price" type="text" class="form-control" id="price" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="series" class="form-label">Serie</label>
+                    <label for="series" class="form-label">Serie (*)</label>
                     <input name="series" type="text" class="form-control" id="series" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="sale_date" class="form-label">Data</label>
+                    <label for="sale_date" class="form-label">Data (*)</label>
                     <input name="sale_date" type="text" class="form-control" id="sale_date" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="type" class="form-label">Tipo</label>
+                    <label for="type" class="form-label">Tipo (*)</label>
                     <input name="type" type="text" class="form-control" id="type" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="artists" class="form-label">Artisti</label>
+                    <label for="artists" class="form-label">Artisti (*)</label>
                     <input name="artists" type="text" class="form-control" id="artists" value="{{ $title }}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="writers" class="form-label">Scrittori</label>
+                    <label for="writers" class="form-label">Scrittori (*)</label>
                     <input name="writers" type="text" class="form-control" id="writers" value="{{ $title }}">
                 </div>
 
